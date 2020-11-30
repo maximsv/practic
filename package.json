@@ -20,6 +20,7 @@
 		"gulp-rsync": "0.0.9",
 		"gulp-sass": "^4.1.0",
 		"gulp-uglify": "^3.0.2",
+		"magnific-popup": "^1.1.0",
 		"webpack-stream": "^6.1.1"
 	}
 }
