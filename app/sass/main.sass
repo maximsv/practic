@@ -1,17 +1,296 @@
 @import config
 
 // CUSTOM USER STYLES & IMPORTS
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+html, body
+	height: 100%
+
 body
-	background-color:#000
+	min-width: 320px
+	background-color: $accent
+	position: relative
+	line-height: 1.5
+	font-family: $userfont
+	overflow-x: hidden
+	color: $textcolor
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+a
+	color: $accent
+	text-decoration: none
+	&:hover, &:focus
+		color: $accent
+
+body
+	background-color: $accent
+
+.header_top
+	display: flex
+	justify-content: space-around
+	height: 65px
 
 .header
-	height: 80vh
+	height: 650px
 	background-position: center center
 	background-size: cover
 
-.menu ul li
+.main-mnu
+	padding: 0 10px
+	width: 100%
+	text-align: center
+	line-height: 65px
+	ul, li
+		list-style-type: none
+		padding: 0
+		margin: 0
+	li
+		display: inline-block
+		margin-right: -4px
+		&.active
+			a
+				color: #ffffff
+		&:hover
+			a
+				color: #ffffff
+	a
+		color: $accent
+		text-decoration: none
+		font-size: 16px
+		padding: 0 15px
+		line-height: 65px
+		display: block
+		transition: color .25s ease, background-color .25s ease
+
+.menu_right
+	line-height: 65px
+	ul
+		li
+			display: inline-block
+	a
+		font-size: 16px
+		padding: 0 15px 0 0
+
+
+		&:hover
+			text-decoration: none
+.menu_right
+	.button
+		border: 1px solid $accent
+		padding: 10px 20px
+
+.logo
+	color: #ffffff
+	font-weight: bold
+	font-size: 23px
 	display: inline-block
+	text-decoration: none
+	line-height: 65px
+	&:hover, &:focus
+		text-decoration: none
+		color: #ffffff
+.main_content
+	height: 300px
+	display: flex
+	align-items:center
 
-.menu_right ul li
-	display: inline-block;
+.main_content
+	h1
+		color:#fff
+		font-size: 3em
 
+.buttons
+	font-weight: 700
+	display: inline-block	
+	background-color: #fff
+	padding: 10px 20px
+	a
+		color: $dark-blue
+		&:hover
+			text-decoration: none
+			color: $dark-blue
+
+.inner
+	position: relative
+	top: 	-8em
+ 	background: rgb(254,254,254)
+	background: linear-gradient(90deg, rgba(254,254,254,0) 19%, rgba(248,248,248,1) 22%, rgba(255,255,255,1) 100%)
+
+
+.main_middle
+	background-color: #fff
+	padding: 6em
+	h3
+		margin-bottom: 1.3em
+		font-weight: 700
+	p 
+		margin-bottom: 3em
+.item
+	padding-right: 3em
+
+.main_item
+	img 
+		width: 70px	
+
+.section_inner
+	padding: .1em 4em
+
+.section_inner-inner
+	h2 
+		font-weight: 700
+
+.hidden-menu-ticker
+  display: none
+
+.btn-menu
+  color: #fff
+  // border: 1px solid #222
+  padding: 5px
+  position: fixed
+  top: 5px
+  left: 5px
+  cursor: pointer
+  transition: left .23s
+  z-index: 3
+  width: 45px
+  -webkit-transform: translateZ(0)
+  -webkit-backface-visibility: hidden
+  -webkit-border-radius: 2px
+  -moz-border-radius: 2px
+  border-radius: 2px
+
+  span
+    display: block
+    height: 5px
+    width: 20px
+    background-color: #222
+    margin: 5px 0 0
+    transition: all .1s linear .23s
+    position: relative
+
+    &.first
+      margin-top: 0
+
+.hidden-menu
+  display: block
+  position: fixed
+  list-style: none
+  padding: 50px 10px 10px
+  margin: 0
+  box-sizing: border-box
+  width: 200px
+  background-color: #fdf7f7
+  height: 100%
+  top: 0
+  left: -200px
+  transition: left .2s
+  z-index: 2
+  -webkit-transform: translateZ(0)
+  -webkit-backface-visibility: hidden
+
+  li
+    padding: 10px 0
+
+    a
+      font-size: 15px
+      color: #000
+      padding: 6px 0px
+
+.hidden-menu-ticker:checked ~
+  .btn-menu
+    left: 160px
+
+  .hidden-menu
+    left: 0
+
+  .btn-menu span
+    &.first
+      -webkit-transform: rotate(45deg)
+      top: 10px
+
+    &.second
+      opacity: 0
+
+    &.third
+      -webkit-transform: rotate(-45deg)
+      top: -10px
+.btn-menu
+	display: none
+
+
+
++media-breakpoint-down(lg) 
+	
+
+// ≥992px
++media-breakpoint-down(md)
+	.btn-menu
+		display: block
+	.main-mnu
+		display: none
+		padding: 20px
+	.menu_right .button
+		margin-right: 10px
+	.menu_right
+		padding: 5px
+		a 
+			padding-right: 10px
+	.header
+		height: 550px
+	.main_content
+		height: 200px
+	.main_content
+		h1
+			color:#fff
+			font-size: 2em
+
+	.main_item
+		img 
+			margin-bottom: 1.7em
+// ≥768px
++media-breakpoint-down(sm)
+	.main_content
+		h1
+			color:#fff
+			font-size: 1.8em
+	.item
+		padding-right: 1em
+
+	.main_middle
+		background-color: #fff
+		padding: 2em
+		h3
+			margin-bottom: .6em
+			font-weight: 700
+		p 
+			margin-bottom: 1em
+
+// ≥1200px
++media-breakpoint-down(xs)
+	.top_logo
+		display: none
+	.menu_right
+		margin: 0 auto
+	.item
+		padding-right: 1em
